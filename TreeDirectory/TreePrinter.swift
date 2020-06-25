@@ -31,16 +31,13 @@ func printDirectioryTree(_ urlString: String, _ padding: String = " ") {
             // Content is a directory
             let contents = try! localFileManager.contentsOfDirectory(at: fileUrl, includingPropertiesForKeys: nil,
                                                                            options: [.skipsHiddenFiles])
-                
                 for content in contents {
-                        let name = FileManager.default.displayName(atPath: content.path)
+                    let name = FileManager.default.displayName(atPath: content.path)
 //                      print(FileManager.default.displayName(atPath: content.path))
-                        print(padding + name)
-                        printDirectioryTree(urlString + "/" + name, padding + "  ")
-                    }
+                    print(padding + name)
+                    printDirectioryTree(urlString + "/" + name, padding + "  ")
+                }
             }
-        } else {
-            print(urlString)
         }
 //    print("Error while enumerating URL path: \(fileUrl.path)")
 
