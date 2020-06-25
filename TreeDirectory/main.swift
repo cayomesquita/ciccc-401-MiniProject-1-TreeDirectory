@@ -8,5 +8,4 @@
 
 import Foundation
 
-print("Hello, World!")
-
+printDirectioryTree(URL(string: "/Users/martin.kuchar/Development/Developer/ciccc-401-MiniProject-1-TreeDirectory")!)
