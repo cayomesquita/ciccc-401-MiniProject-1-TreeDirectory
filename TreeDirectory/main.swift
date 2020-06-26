@@ -8,4 +8,4 @@
 
 import Foundation
 
-printDirectioryTree("/Users/martin.kuchar/Development/ObjC")
+printDirectoryTree("/Users/martin.kuchar/Development/Developer")

@@ -7,38 +7,38 @@
 //
 
 import Foundation
+import AppKit
 
-
-func printDirectioryTree(_ urlString: String, _ padding: String = " ") {
+func printDirectoryTreeHelper(_ urlString: String, _ padding: String = " ", _ directoryCounter: inout Int, _ fileCounter: inout Int) {
     guard let fileUrl = URL(string: urlString), FileManager.default.fileExists(atPath: fileUrl.path) else {
         return
     }
     let localFileManager = FileManager.default
-        /// Enumerating the directory when we want to use recursion
-        //        guard let enumeratedDir = localFileManager.enumerator(atPath: URL.path)  else {
-        //            return
-        //        }
-        //     for content in enumeratedDir {
-        //        if let file = content as? String, !file.hasPrefix(".git") {
-        //            let attributes = try! FileManager.default.attributesOfItem(atPath: file)
-        //            print(file)
-        //        }
-        //    }
     var isDirectory : ObjCBool = false
     if FileManager.default.fileExists(atPath: fileUrl.path, isDirectory:&isDirectory) {
         if isDirectory.boolValue {
+            directoryCounter += 1
         let contents = try! localFileManager.contentsOfDirectory(at: fileUrl, includingPropertiesForKeys: nil,
                                      options: [.skipsHiddenFiles])
             for i in 0...contents.count-1 {
                 let name = FileManager.default.displayName(atPath: contents[i].path)
                 if i == contents.count - 1 {
                     print(padding + "└─" + name)
-                    printDirectioryTree(urlString + "/" + name, padding + "   ")
+                    printDirectoryTreeHelper(urlString + "/" + name, padding + "   ", &directoryCounter, &fileCounter)
                 } else {
                     print(padding + "├─" + name)
-                    printDirectioryTree(urlString + "/" + name, padding + "│  ")
+                    printDirectoryTreeHelper(urlString + "/" + name, padding + "│  ",  &directoryCounter, &fileCounter)
                 }
             }
+        } else {
+            fileCounter += 1
         }
     }
+}
+
+func printDirectoryTree(_ urlString: String) {
+    var directoryCounter = -1
+    var fileCounter = 0
+    printDirectoryTreeHelper(urlString, "", &directoryCounter, &fileCounter)
+    print("\n\(directoryCounter) directories, \(fileCounter) files\n")
 }
