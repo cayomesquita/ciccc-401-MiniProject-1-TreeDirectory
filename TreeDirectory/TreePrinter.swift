@@ -24,26 +24,21 @@ func printDirectioryTree(_ urlString: String, _ padding: String = " ") {
         //            print(file)
         //        }
         //    }
-
-        var isDirectory : ObjCBool = false
-        if FileManager.default.fileExists(atPath: fileUrl.path, isDirectory:&isDirectory) {
-            if isDirectory.boolValue {
-            // Content is a directory
-            let contents = try! localFileManager.contentsOfDirectory(at: fileUrl, includingPropertiesForKeys: nil,
-                                                                           options: [.skipsHiddenFiles])
-                for i in 0...contents.count-1 {
-                    let name = FileManager.default.displayName(atPath: contents[i].path)
-                    if i == contents.count - 1 {
-                        print(padding + "└─" + name)
-                        printDirectioryTree(urlString + "/" + name, padding + "  ")
-                    } else {
-                        print(padding + "├─" + name)
-                        printDirectioryTree(urlString + "/" + name, padding + "│ ")
-                    }
-//                      print(FileManager.default.displayName(atPath: content.path))
+    var isDirectory : ObjCBool = false
+    if FileManager.default.fileExists(atPath: fileUrl.path, isDirectory:&isDirectory) {
+        if isDirectory.boolValue {
+        let contents = try! localFileManager.contentsOfDirectory(at: fileUrl, includingPropertiesForKeys: nil,
+                                     options: [.skipsHiddenFiles])
+            for i in 0...contents.count-1 {
+                let name = FileManager.default.displayName(atPath: contents[i].path)
+                if i == contents.count - 1 {
+                    print(padding + "└─" + name)
+                    printDirectioryTree(urlString + "/" + name, padding + "   ")
+                } else {
+                    print(padding + "├─" + name)
+                    printDirectioryTree(urlString + "/" + name, padding + "│  ")
                 }
             }
         }
-//    print("Error while enumerating URL path: \(fileUrl.path)")
-
+    }
 }
