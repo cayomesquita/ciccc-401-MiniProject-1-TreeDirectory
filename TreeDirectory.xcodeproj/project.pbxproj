@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		955DFDA124A54D5000342A82 /* TreePrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955DFDA024A54D5000342A82 /* TreePrinter.swift */; };
 		C08FAB8024A520C000383F34 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08FAB7F24A520C000383F34 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +23,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		955DFDA024A54D5000342A82 /* TreePrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreePrinter.swift; sourceTree = "<group>"; };
 		C08FAB7C24A520C000383F34 /* TreeDirectory */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TreeDirectory; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08FAB7F24A520C000383F34 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,7 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				C08FAB7F24A520C000383F34 /* main.swift */,
-				955DFDA024A54D5000342A82 /* TreePrinter.swift */,
 			);
 			path = TreeDirectory;
 			sourceTree = "<group>";
@@ -123,7 +120,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				955DFDA124A54D5000342A82 /* TreePrinter.swift in Sources */,
 				C08FAB8024A520C000383F34 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,7 +244,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PC4J6W84S8;
+				DEVELOPMENT_TEAM = 38M52GJZ37;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -259,7 +255,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PC4J6W84S8;
+				DEVELOPMENT_TEAM = 38M52GJZ37;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
